@@ -1,0 +1,25 @@
+.contentCreditCard {
+  display: flex;
+  justify-content: space-around;
+  height: 70vh;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contentText {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+.centerText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .contentCreditCard {
+    height: 100%;
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "characters": [
+    {
+      "counts": [
+        {
+          "logo": "http://localhost:3007/assets/8573f84693f75cae4c675693e5f33bfe.svg",
+          "id": "2",
+          "money": "500",
+          "debt": "0",
+          "original_debt": "0",
+          "number_quotas_elected": "0",
+          "original_number_quotas_elected": "0",
+          "paid_quota": "0",
+          "weekly_payment": "0"
+        },
+        {
+          "logo": "http://localhost:3007/assets/a81b172b71af10c97a265ce1edf738e7.svg",
+          "id": "3",
+          "money": "500",
+          "debt": "0",
+          "original_debt": "0",
+          "number_quotas_elected": "0",
+          "original_number_quotas_elected": "0",
+          "paid_quota": "0",
+          "weekly_payment": "0"
+        },
+        {
+          "logo": "http://localhost:3007/assets/3af9e945035c3721721f05cb90e08d0f.svg",
+          "id": "1",
+          "money": "580",
+          "debt": "80",
+          "original_debt": "100",
+          "number_quotas_elected": "2",
+          "original_number_quotas_elected": "2",
+          "paid_quota": "0",
+          "weekly_payment": "40"
+        }
+      ],
+      "id": "1"
+    }
+  ],
+  "history": []
+}

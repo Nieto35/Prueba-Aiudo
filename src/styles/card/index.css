@@ -1,0 +1,107 @@
+.bankCard {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 327px;
+  height: 208px;
+
+  /* Gradient */
+
+  background: linear-gradient(112.03deg, #c69dff 0%, #4f76ff 100%);
+  border-radius: 16px;
+}
+
+.amount {
+  /* 338.34 */
+
+  position: absolute;
+  height: 40px;
+  padding: 144px 180px 24px 47px;
+  font-family: Custom;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0.01em;
+
+  color: #ffffff;
+}
+
+.selectCard {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  z-index: 1;
+}
+
+.kurs {
+  /* ¥ */
+
+  position: absolute;
+  height: 23px;
+  padding: 151px 284px 34px 32px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  font-family: Custom;
+  margin: -3px 0;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  color: #ffffff;
+}
+
+.balance {
+  /* Balance */
+
+  position: absolute;
+  height: 18px;
+  padding: 126px 244px 64px 32px;
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  color: #ffffff;
+  font-family: Custom;
+}
+
+.card-name {
+  position: absolute;
+  padding: 32px 234px 160px 32px;
+  width: 350px;
+}
+
+.siluet-1 {
+  /* Ellipse 4 */
+  position: absolute;
+  width: 425px;
+  height: 171px;
+  border-radius: 600px / 200px;
+  margin: 98px -20px -61px -78px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.siluet-2 {
+  position: absolute;
+  width: 335px;
+  height: 259px;
+  border-radius: 50%;
+  margin: 64px 89px -115px -97px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.rectangle {
+  position: absolute;
+  width: 327px;
+  height: 208px;
+
+  background: linear-gradient(112.03deg, #c69dff 0%, #4f76ff 100%);
+  border-radius: 16px;
+}

@@ -1,0 +1,50 @@
+.seccion-content {
+  background-color: #9de2ff;
+}
+
+.card-style {
+  border-radius: 15px;
+}
+
+.img-style-loading {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.img-style {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.p-style {
+  color: #2b2a2a;
+  width: 100%;
+}
+
+.div-style {
+  background-color: #efefef;
+}
+
+.row .content-with {
+  width: 100%;
+}
+
+.content-info-user {
+  width: 500px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.content-center {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .img-style {
+    width: 120px;
+    border-radius: 10px;
+  }
+}

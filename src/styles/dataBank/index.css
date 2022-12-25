@@ -1,0 +1,40 @@
+.contentCardData {
+  margin-bottom: 100px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  flex-wrap: wrap;
+}
+
+.content-with {
+  width: 100%;
+}
+
+.contentSpaceBank {
+  height: 100vh;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.contentCard {
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .contentSpaceBank {
+    height: 100%;
+  }
+}
