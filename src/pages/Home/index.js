@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <div className={fillActive == "tab1" && "content-home"}>
+      <div className={fillActive == "tab1" ? "content-home" : "content-table"}>
         <MDBTabs fill className="mb-3">
           <MDBTabsItem>
             <MDBTabsLink

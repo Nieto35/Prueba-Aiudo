@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import HomeDataBody from "../HomeTableBody";
 import "@styles/home/index.css";
 import LogoLoading from "@components/Loading";
+import { MDBIcon } from "mdb-react-ui-kit";
 
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { fetchDataTable } from "@slices/dataTableSlice";
@@ -11,13 +12,45 @@ export default function HomeTableData() {
   const dataApiTable = useSelector((state) => state.table.data, shallowEqual);
   const loadingTable = useSelector((state) => state.loadingTable.loading);
   const dispatch = useDispatch();
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
-    dispatch(fetchDataTable());
-  }, []);
+    dispatch(fetchDataTable(count));
+  }, [count]);
+
+  const left = () => {
+    if (count == 1) {
+      console.log("no existe el 0");
+    } else {
+      setCount(count - 1);
+    }
+  };
+
+  const right = () => {
+    if (count == 42) {
+      console.log("no existe el 43");
+    } else {
+      setCount(count + 1);
+    }
+  };
 
   return (
-    <>
+    <div className="relative">
+      <MDBIcon
+        fas
+        icon="angle-left"
+        size="6x"
+        className="absolute-left-table"
+        onClick={left}
+      />
+      <MDBIcon
+        fas
+        icon="angle-right"
+        size="6x"
+        className="absolute-right-table"
+        onClick={right}
+      />
+
       {loadingTable ? (
         <LogoLoading />
       ) : (
@@ -51,6 +84,6 @@ export default function HomeTableData() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

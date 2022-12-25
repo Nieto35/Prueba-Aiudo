@@ -15,6 +15,25 @@
   height: 100vh;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute-left-table {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.absolute-right-table {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .content-home {
     height: 100%;
