@@ -1,3 +1,4 @@
+// CONFIGURACION BABEL PARA QUE NAVEGADORES ALTIGUOS PUEDAN LEER TODO SIN PROBLEMAS
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": ["@babel/plugin-transform-runtime"]

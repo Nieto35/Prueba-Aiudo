@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import loadAnimation from "./old-man.json";
 import "@styles/loading/index.css";
-
+// ANIMACION DE CARGA OLD-MAN
 const LogoLoading = () => {
   const refLoad = useRef(null);
 

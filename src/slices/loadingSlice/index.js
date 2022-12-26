@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// estado inicial
 const initialState = {
   loading: true,
 };
-
+// slice para carga de usuario individual.
 export const loadingSlice = createSlice({
   name: "loading",
   initialState,

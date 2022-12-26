@@ -1,12 +1,20 @@
 import React, { useEffect } from "react";
+// estilos
 import "@styles/infoUser/index.css";
+// close estilos
+// componente general
 import LogoLoading from "@components/Loading";
+// close componente general
 
+// Redux
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { fetchDataWithDetails } from "@slices/dataUserSlice";
+// close Redux
 
 export default function InfoUser(props) {
+  // sacamos variables de props para facil uso
   const { id } = props;
+  // variables de Redux
   const dataApi = useSelector((state) => state.data.data, shallowEqual);
   const loading = useSelector((state) => state.loading.loading);
   const dataCharacters = useSelector(
@@ -14,11 +22,15 @@ export default function InfoUser(props) {
     shallowEqual
   );
   const dispatch = useDispatch();
+  // Close variables de Redux
 
+  // useEffect que trae los datos de Redux
   useEffect(() => {
     dispatch(fetchDataWithDetails({ data: id, dataCharacters }));
   }, []);
 
+  // todo lugar donde este loading, verificamos si esta en estado de carga,
+  // si es asi ejecuta componente de carga.
   return (
     <div className="container py-5 h-100 content-info-user">
       <div className="row d-flex justify-content-center align-items-center h-100">

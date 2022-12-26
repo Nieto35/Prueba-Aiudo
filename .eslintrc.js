@@ -1,3 +1,4 @@
+// CONFIGURACION NECESARIA PARA WEBPACK
 module.exports = {
   env: {
     browser: true,

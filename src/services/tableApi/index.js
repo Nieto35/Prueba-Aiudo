@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// obtiene datos de la consulta api Rick y Morty
 const getApiTable = (data) => {
   return axios
     .get(`https://rickandmortyapi.com/api/character?page=${data}`)

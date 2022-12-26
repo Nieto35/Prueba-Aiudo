@@ -1,3 +1,5 @@
+// TODOS LOS DATOS NECESARIOS PARA PODER USAR LA LIBRERIA FIREBASE,
+// TODO ENCONTRADO DIRECTAMENTE EN LA DOCUMENTACION
 export default {
   apiKey: "AIzaSyCbM7Fn6MolqS_dB9J7ZANzmms7swCCua4",
   authDomain: "aiudo-34af0.firebaseapp.com",

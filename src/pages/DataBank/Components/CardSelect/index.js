@@ -18,10 +18,13 @@ const options = [
 ];
 
 export default function CardSelect(props) {
+  // variable donde se guardara el banco seleccionado
   const [bank, setBank] = useState("");
+  // funcion para capturar la eleccion en el select
   const handleSelectChange = (event) => {
     setBank(event);
   };
+  // se saca variables de props para facil uso
   const { select } = props;
 
   return (
@@ -36,7 +39,13 @@ export default function CardSelect(props) {
         <div className="mb-2 ml-2 mr-2 mt-2">
           <Select options={options} onChange={handleSelectChange} />
         </div>
-        <MDBBtn onClick={() => select(bank)}>ENVIAR</MDBBtn>
+        {/* se verifica si selecciono un banco, si está seleccionado se habilita, si no, se desabilita */}
+        <MDBBtn
+          onClick={() => select(bank)}
+          disabled={bank == "" ? true : false}
+        >
+          ENVIAR
+        </MDBBtn>
       </MDBCardBody>
       <MDBCardFooter className="text-muted">
         ELIGE LA TARJETA PARA FINALIZAR EL ENVIO

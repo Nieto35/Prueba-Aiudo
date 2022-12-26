@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// componentes con estilo
 import {
   MDBContainer,
   MDBNavbar,
@@ -9,21 +10,24 @@ import {
   MDBNavbarLink,
   MDBCollapse,
 } from "mdb-react-ui-kit";
-import Notification from "@components/notifications";
+// Close componentes con estilo
 
 // ROUTER DOM 6
 import { NavLink } from "react-router-dom";
 // CLOSE ROUTER DOM 6
-
+// Obtener sesion y cerrar sesion de firebase
 import { getAuth, signOut } from "firebase/auth";
+// Close Obtener sesion y cerrar sesion de firebase
 
 import logo from "@images/logo.png";
 
 export default function NavBar() {
   const [showBasic, setShowBasic] = useState(false);
 
+  // obtenemos datos de cuenta.
   const auth = getAuth();
 
+  // Funcion para cerrar sesion firebase
   const logout = () => {
     signOut(auth)
       .then(() => {
@@ -67,7 +71,6 @@ export default function NavBar() {
 
           <span>
             <MDBIcon fas icon="fa-duotone fa-bell"></MDBIcon>
-            {/* <Notification /> */}
           </span>
         </MDBCollapse>
       </MDBContainer>

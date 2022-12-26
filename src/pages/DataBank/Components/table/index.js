@@ -1,24 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
+// componentes con estilos
+import {
+  MDBTable,
+  MDBTableHead,
+  MDBTableBody,
+  MDBIcon,
+} from "mdb-react-ui-kit";
+// close componentes con estilos
+// componente de uso unico
 import DataBody from "../tableBody";
+// close componente de uso unico
+// estilos
 import "@styles/home/index.css";
+// close estilos
+// componentes generales
 import LogoLoading from "@components/Loading";
-import { MDBIcon } from "mdb-react-ui-kit";
-
+// close componentes generales
+// REDUX
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { fetchDataTable } from "@slices/dataTableSlice";
+// Close REDUX
 
 export default function TableData(props) {
+  // variables Redux
   const dataApiTable = useSelector((state) => state.table.data, shallowEqual);
   const loadingTable = useSelector((state) => state.loadingTable.loading);
   const dispatch = useDispatch();
+  // Close variables Redux
+  // sacamos variable de props
   const { onClick } = props;
+  // count, variable para saber en que pagina de la api se encuentra
   const [count, setCount] = useState(1);
 
+  // detecta si hay un cambio en count y asi vuelve a hacer la consulta
+  // a la api y renueva la informacion.
   useEffect(() => {
     dispatch(fetchDataTable(count));
   }, [count]);
 
+  // funcion la cual resta a count verificando si es igual a 1
   const left = () => {
     if (count == 1) {
       console.log("no existe el 0");
@@ -27,6 +47,7 @@ export default function TableData(props) {
     }
   };
 
+  // funcion que suma a count verificando que no se pase de a 42
   const right = () => {
     if (count == 42) {
       console.log("no existe el 43");
@@ -67,6 +88,7 @@ export default function TableData(props) {
                 </tr>
               </MDBTableHead>
               <MDBTableBody>
+                {/* map con los datos traidos por el Redux */}
                 {dataApiTable.map((data) => (
                   <DataBody
                     name={data.name}

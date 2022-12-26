@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// estado inicial
 const initialState = {
   loading: true,
 };
-
+// slice estado de carga para todo lo necesario de bancos
 export const loadingBankSlice = createSlice({
   name: "loading",
   initialState,

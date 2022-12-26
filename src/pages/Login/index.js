@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// COMPONENTES CON ESTILO
 import {
   MDBContainer,
   MDBCol,
@@ -7,7 +8,8 @@ import {
   MDBIcon,
   MDBInput,
 } from "mdb-react-ui-kit";
-// Firebase
+// CLOSE COMPONENTES CON ESTILO
+// Firebase, FIREBASE CON FACEBOOK
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -16,75 +18,100 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
-// FOOTER
+// CLOSE Firebase, FIREBASE CON FACEBOOK
+// COMPONENTES
 import Footer from "@components/Footer";
-import Notification from "@components/notifications";
+import AlertDismissible from "@components/notifications";
+// CLOSE COMPONENTES
+// ESTILOS
 import "@styles/login/index.css";
 
 function Login() {
+  // VARIABLES CREADAS PARA AUTENTIFICACION
   const [email, setEmail] = useState("");
   const [passWord, setPassWord] = useState("");
   const auth = getAuth();
   const provider = new FacebookAuthProvider();
+  // CLOSE VARIABLES CREADAS PARA AUTENTIFICACION
 
+  // ALERT
+  const [title, setTitle] = useState("");
+  const [textBody, setTextBody] = useState("");
+  const [show, setShow] = useState(false);
+  // CLOSE ALERT
+
+  // CREAR USUARIO ES NECESARIO UN EMAIL VALIDO Y UNA PASSWORD MAYOR A 6 DIGITOS
   const submit = async () => {
     try {
+      // SI TODO SALE BIEN CREA EL USUARIO Y LO LOGEA
       await createUserWithEmailAndPassword(auth, email, passWord);
     } catch (err) {
-      alert(
-        "la password debe tener mas de 6 digitos y el email debe ser correcto"
+      // SI SALE MAN HABILITA LA ALERTA Y MUESTRA EL ERROR
+      setTitle("¡Error!");
+      setTextBody(
+        "la password debe tener mas de 6 digitos y el email debe ser correcto!"
       );
+      setShow(true);
     }
   };
+  // CLOSE CREAR USUARIO ES NECESARIO UN EMAIL VALIDO Y UNA PASSWORD MAYOR A 6 DIGITOS
 
+  // LOGIN CON CORREO Y USUARIO CREADOS
   const login = async () => {
     try {
+      // LOGEA SI TODO SALE BIEN
       await signInWithEmailAndPassword(auth, email, passWord);
     } catch (err) {
-      alert("email o password incorrectos"); // TypeError: failed to fetch
+      // HABILITA ALERTA CON MENSAJE
+      setTitle("¡Error!");
+      setTextBody("email o password incorrecto!");
+      setShow(true);
     }
   };
+  // CLOSE LOGIN CON CORREO Y USUARIO CREADOS
 
+  // LOGIN CON FACEBOOK RECORDAR QUE DEBE ESTAR EN LOCALHOST Y EL USUARIO DEBE ESTAR EN CALIFICADORES
+  // SEGUN LA DOCUMENTACION DE FACEBOOK NO SE PUEDE UTILIZAR PARA CUALQUIERA SI NO ESTA EN UNA URL
   const sigInWithFacebook = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // The signed-in user info.
-        const user = result.user;
+        // SI TODO SALE BIEN LOGEA CON FACEBOOK
 
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        // podemos obetener los datos del usuario con estas variables
+        const user = result.user;
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
-
-        // ...
       })
       .catch((error) => {
-        alert("hubo algun problema con facebook");
-        // Handle Errors here.
+        // HABILITA ALERTA SI ALGO SALE MAL
+        setTitle("¡Error!");
+        setTextBody(
+          "Recuerda tu facebook debe estar en calificadores, escribeme te agrego!, tel: 671033348"
+        );
+        setShow(true);
+
+        // EN ESTA PARTE PODEMOS CAPTURAR EL ERROR PRECISO, PARA ESTE PROGRAMA NO LO CONSIDERE NECESARIO.
+        // SI QUIEREN SABER QUE ERROR TIENEN PUEDEN HACER CONSOLE LOG A ESTAS CONSTANTES.
+
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
         const credential = FacebookAuthProvider.credentialFromError(error);
-
-        // ...
       });
   };
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
+  // CLOSE LOGIN CON FACEBOOK RECORDAR QUE DEBE ESTAR EN LOCALHOST Y EL USUARIO DEBE ESTAR EN CALIFICADORES
+
   return (
     <>
       <MDBContainer fluid className="p-3 my-5 relative">
+        <AlertDismissible
+          title={title}
+          textBody={textBody}
+          show={show}
+          setShow={setShow}
+          variant="danger"
+        />
         <MDBRow>
           <MDBCol col="10" md="6">
             <img
